@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/free-jqgrid/4.15.5/jquery.jqgrid.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/themes/redmond/jquery-ui.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/free-jqgrid/4.15.5/css/ui.jqgrid.min.css"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/free-jqgrid/4.15.5/plugins/css/ui.multiselect.min.css"/>
+
+<body>
+
+<table id="my-grid"></table>
+<div id="my-grid-pager"></div>
+
+</body>
+
+<script>
+
+// 列ごとの詳細設定
+var colModelSettings= [
+    {name:"no", width:100, align:"center", sortable:true},
+    {name:"name", width:120, align:"center", sortable:true},
+    {name:"type1", width:120, align:"center", sortable:true},
+    {name:"type2", width:120, align:"center", sortable:true}
+];
+
+// 列の表示名
+var colNames = ["No","名前","タイプ1","タイプ2"];
+
+// Gridに挿入するデータ
+var data = [
+    {no:1,name:"フシギダネ",type1:"くさ",type2:"どく"},
+    {no:2,name:"フシギソウ",type1:"くさ",type2:"どく"},
+    {no:3,name:"フシギバナ",type1:"くさ",type2:"どく"},
+    {no:4,name:"ヒトカゲ",type1:"ほのお",type2:""},
+    {no:5,name:"リザード",type1:"ほのお",type2:""},
+    {no:6,name:"リザードン",type1:"ほのお",type2:"ひこう"},
+    {no:7,name:"ゼニガメ",type1:"みず",type2:""},
+    {no:8,name:"カメール",type1:"みず",type2:""},
+    {no:9,name:"カメックス",type1:"みず",type2:""},
+    {no:10,name:"キャタピー",type1:"むし",type2:""}
+];
+
+$(function(){
+    $("#my-grid").jqGrid({
+    // データ
+    data:data,
+    // データの種類
+    datatype : "local",
+    // 列ヘッダー名(配列)
+    colNames : colNames,
+    // 列の各種設定(オブジェクト配列)
+    colModel : colModelSettings,
+    // Gridのタイトル
+    caption : "Sample Grid ",
+    // ページャーのID
+    pager : 'my-grid-pager'
+    });
+});
+
+</script>
+
+</html>

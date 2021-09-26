@@ -1,11 +1,18 @@
 <!DOCTYPE html>
-<!-- ポイント1 -->
+
 <html xmlns:th="http://thymeleaf.org">
 <head>
+
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Form</title>
 </head>
 <body>
-    <h1>Hello World</h1>
+<h1>FORM</h1>
+ <form method="POST" th:action="@{/result}"  >
+      <p>first number:</p>
+       <input type="text" th:field="${form.num1}" />
+      <p>Second number: <input type="number" th:field="*{num2}" /></p>
+      <p><input type="submit" value="calculate" /></p>
+    </form>
 </body>
 </html>
